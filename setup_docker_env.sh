@@ -5,7 +5,7 @@
 
 zshrc="$HOME/.zshrc"
 
-read -p $'\e\033[0;32mPlease install Docker from the Managed Software Center and press any key to continue.\e\033[0m' docker
+read -p $'\e\033[0;32mPlease install Docker from the Managed Software Center and press any key if Docker is running.\e\033[0m' docker
 
 read -p $'\e\033[0;32mPlease enter an Alias to init your Docker Container a.e. "docker_init":\e\033[0m' ali_ini
 if [[ $ali_init == "" ]]
@@ -37,7 +37,6 @@ read -p $'\e\033[0;32mPlease enter an Alias to start your Valgrind Docker Contai
 if [[ $ali_valgrind == "" ]]
 then
         ali_valgrind="docker_valgrind"
-	echo "Alias is now:$ali_valgrind"
 fi
 docker=$(grep "$ali_valgrind" $zshrc)
 if [[ "$docker" != "" ]]
@@ -71,7 +70,7 @@ fi
 echo -e '\033[0;33mCreating Aliase in ZSH.....\033[0m'
 echo "alias $ali_init=\"bash $path/init_docker.sh\"" >> $zshrc
 echo "alias $ali_build=\"docker build -t valgrind - < $path/valgrind\"" >> $zshrc
-echo "alias $ali_valgrind=\'docker run -ti -v \$PWD:/code -v \"$path/root\":/root valgrind bash'" >> $zshrc
+echo "alias $ali_valgrind='docker run -ti -v \$PWD:/code -v \"$path/root\":/root valgrind bash'" >> $zshrc
 source $zshrc
 
 echo -e '\033[0;33mCreating Scripts.....\033[0m'
