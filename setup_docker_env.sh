@@ -12,7 +12,8 @@ if [[ $ali_init == "" ]]
 then
 	ali_init="docker_init"
 fi
-if [[ grep "$ali_init" $zshrc != "" ]]
+docker=$(grep "$ali_init" $zshrc)
+if [[ "$docker" != "" ]]
 then
 	echo "This Alias already exist!!"
 else
@@ -24,7 +25,8 @@ if [[ $ali_build == "" ]]
 then
         ali_build="docker_build"
 fi
-if [[ grep "$ali_build" $zshrc != "" ]]
+docker=$(grep "$ali_build" $zshrc)
+if [[ "$docker" != "" ]]
 then
         echo "This Alias already exist!!"
 else
@@ -37,7 +39,8 @@ then
         ali_valgrind="docker_valgrind"
 	echo "Alias is now:$ali_valgrind"
 fi
-if [[ grep "$ali_valgrind" $zshrc != "" ]]
+docker=$(grep "$ali_valgrind" $zshrc)
+if [[ "$docker" != "" ]]
 then
         echo "This Alias already exist!!"
 else
