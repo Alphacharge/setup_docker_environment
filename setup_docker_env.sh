@@ -71,14 +71,15 @@ echo -e '\033[0;33mCreating Aliase in ZSH.....\033[0m'
 echo "alias $ali_init=\"bash $path/init_docker.sh\"" >> $zshrc
 echo "alias $ali_build=\"docker build -t valgrind - < $path/valgrind\"" >> $zshrc
 echo "alias $ali_valgrind='docker run -ti -v \$PWD:/code -v \"$path/root\":/root valgrind bash'" >> $zshrc
-source $zshrc
+
+echo -e '\e\033[0;32mPlease source your zshrc new now with:"source ~/.zshrc".\e\033[0m'
 
 echo -e '\033[0;33mCreating Scripts.....\033[0m'
 cp "$PWD/init_docker.sh" "$path/"
 cp "$PWD/valgrind" "$path/"
 
-echo -e '\033[0;33mBuilding your first Container.....\033[0m'
-bash "$path/init_docker.sh"
-docker build -t valgrind - < "$path/valgrind"
-
 echo "Installation completed. Enjoy Docker :)"
+
+echo -e "\e\033[0;32mInit your Docker now with >$ali_init<.\e\033[0m"
+echo -e "\e\033[0;32mMake sure your Docker is running and build your Container with >$ali_build<.\e\033[0m"
+echo -e "\e\033[0;32mStart the Container in your project with >$ali_valgrind<.\e\033[0m"
