@@ -1,7 +1,9 @@
-FROM ubuntu:16.04
+FROM ubuntu:22.04
 
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install g++ valgrind -y
-RUN apt-get install make
-RUN apt-get install nano -y
+RUN apt-get install libreadline-dev -y
+RUN apt-get install make cmake -y
+RUN apt-get install nano vim -y
+RUN apt-get install lsof -y
