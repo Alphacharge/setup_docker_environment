@@ -74,7 +74,7 @@ insert_alias() {
 	echo -e "${dgreen}Creating aliases in $sh .....${white}"
 	echo "alias $ali_init=\"bash $path/init_docker.sh\"" >> "$sh"
 	echo "alias $ali_build=\"docker build -t valgrind - < $path/valgrind\"" >> "$sh"
-	echo "alias $ali_valgrind='docker run -ti --name valgrind -v \$PWD:/code -v \"$path/root\":/root valgrind bash'" >> "$sh"
+	echo "alias $ali_valgrind='docker run -ti -v \$PWD:/code -v \"$path/root\":/root valgrind bash'" >> "$sh"
 }
 
 check_configs
@@ -97,7 +97,7 @@ read -r ali_valgrind
 create_alias "$ali_valgrind" "dv"
 ali_valgrind="$ali"
 
-echo -en "${magenta}Please enter a path to store your setup [~/.docker_valgrind_setup]:${white}"
+echo -en "${magenta}Please enter an absolut path to store your setup [~/.docker_valgrind_setup]:${white}"
 read -r path
 if [[ "$path" == "" ]]
 then
